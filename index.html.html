@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Понятные инструкции, обзоры и практические советы по нейросетям для работы, учёбы и бизнеса.">
+<title>НейроПомощник — нейросети просто</title>
+<style>
+:root{--ink:#17243b;--muted:#66748b;--blue:#3157d5;--blue2:#6d85f5;--bg:#f5f7fc;--card:#fff;--line:#e6eaf2;--mint:#dff7ee}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:850;letter-spacing:-.7px;font-size:21px}.brand span{color:var(--blue)}nav{display:flex;gap:25px;color:#526078;font-size:14px}nav a:hover{color:var(--blue)}.menu{display:none;border:0;background:#eef1fb;padding:9px 12px;border-radius:10px}
+.hero{padding:78px 0 62px;background:radial-gradient(circle at 85% 20%,#dce5ff 0,transparent 30%),linear-gradient(135deg,#f4f7ff,#eef2ff 55%,#f7f9ff)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#e4eaff;color:#2948b7;border-radius:99px;padding:7px 13px;font-size:13px;font-weight:700}.dot{width:7px;height:7px;border-radius:50%;background:#27b47d}
+h1{font-size:clamp(38px,5vw,62px);line-height:1.06;letter-spacing:-2.4px;margin:20px 0}.hero p{font-size:18px;color:#5d6b83;max-width:600px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;justify-content:center;align-items:center;border-radius:12px;padding:13px 19px;font-weight:750;font-size:14px;border:1px solid transparent;cursor:pointer}.primary{background:var(--blue);color:#fff;box-shadow:0 8px 20px #3157d52b}.primary:hover{background:#2448c2}.secondary{background:#fff;border-color:#dce2ef;color:#34415a}
+.visual{background:#fff;border:1px solid #e6eaf4;border-radius:25px;padding:22px;box-shadow:0 22px 60px #2e4a8718;transform:rotate(1deg)}.visual-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.pill{font-size:11px;font-weight:750;color:#28785c;background:var(--mint);padding:5px 9px;border-radius:20px}.mock-title{font-weight:800;font-size:20px;letter-spacing:-.5px}.mock-sub{font-size:12px;color:var(--muted)}.mock-card{margin-top:12px;border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;gap:12px;align-items:center}.mock-icon{width:42px;height:42px;border-radius:12px;background:#eef1ff;display:grid;place-items:center;font-size:21px}.mock-card b{display:block;font-size:13px}.mock-card small{color:var(--muted)}
+section{padding:68px 0}.section-head{max-width:650px;margin-bottom:28px}.kicker{color:var(--blue);font-size:12px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase}.section-head h2{font-size:clamp(28px,3vw,39px);letter-spacing:-1.2px;line-height:1.15;margin:9px 0}.section-head p{color:var(--muted);margin:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;transition:.2s}.card:hover{transform:translateY(-3px);box-shadow:0 14px 35px #253c7410}.icon{width:46px;height:46px;border-radius:14px;background:#edf1ff;display:grid;place-items:center;font-size:23px;margin-bottom:15px}.card h3{margin:0 0 7px;font-size:18px}.card p{margin:0;color:var(--muted);font-size:14px}.tag{display:inline-block;margin-top:14px;font-size:11px;font-weight:750;color:#3855bd;background:#eef1ff;padding:5px 9px;border-radius:20px}
+.article{display:flex;flex-direction:column;min-height:225px}.article .number{font-size:12px;color:var(--blue);font-weight:850}.article h3{font-size:19px;line-height:1.3;margin:12px 0}.article p{flex:1}.read{margin-top:18px;color:var(--blue);font-size:13px;font-weight:800}
+.callout{background:#172b52;color:white;border-radius:24px;padding:35px;display:flex;align-items:center;justify-content:space-between;gap:25px}.callout h2{font-size:29px;line-height:1.15;margin:0 0 8px}.callout p{color:#c6d1e8;margin:0;max-width:600px}.callout .btn{background:#fff;color:#203d9f;white-space:nowrap}
+footer{padding:30px 0 45px;color:var(--muted);font-size:13px}.foot{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding-top:22px}.note{font-size:12px;color:#7c8799;max-width:760px;margin-top:12px}
+@media(max-width:800px){.hero-grid{grid-template-columns:1fr;gap:35px}.visual{max-width:520px}.grid{grid-template-columns:repeat(2,1fr)}nav{display:none}.menu{display:block}.callout{align-items:flex-start;flex-direction:column}}
+@media(max-width:540px){.wrap{width:min(100% - 28px,1120px)}.hero{padding:55px 0 45px}section{padding:52px 0}.grid{grid-template-columns:1fr}.foot{flex-direction:column}.callout{padding:25px}.visual{padding:17px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#"><span>✦</span> НейроПомощник</a>
+    <nav aria-label="Основная навигация">
+      <a href="#topics">Темы</a><a href="#guides">Инструкции</a><a href="#about">О проекте</a>
+    </nav>
+    <button class="menu" onclick="document.querySelector('#topics').scrollIntoView({behavior:'smooth'})">Разделы ↓</button>
+  </div>
+</header>
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> ИИ без сложных слов</div>
+      <h1>Нейросети, которые помогают <span style="color:var(--blue)">работать умнее</span></h1>
+      <p>Понятные инструкции, честные обзоры и практические идеи. Разбираемся, как использовать искусственный интеллект в повседневной жизни, учёбе и бизнесе.</p>
+      <div class="actions">
+        <a class="btn primary" href="#guides">Начать изучать</a>
+        <a class="btn secondary" href="#topics">Выбрать тему</a>
+      </div>
+    </div>
+    <div class="visual" aria-label="Пример разделов сайта">
+      <div class="visual-top"><div><div class="mock-title">Твой навигатор по ИИ</div><div class="mock-sub">Подборка для начинающих</div></div><span class="pill">СТАРТ</span></div>
+      <div class="mock-card"><div class="mock-icon">💬</div><div><b>Текст и идеи</b><small>Письма, планы, объяснения</small></div></div>
+      <div class="mock-card"><div class="mock-icon">🎨</div><div><b>Изображения</b><small>Иллюстрации и дизайн</small></div></div>
+      <div class="mock-card"><div class="mock-icon">📈</div><div><b>Работа и бизнес</b><small>Автоматизация повседневных задач</small></div></div>
+      <div class="mock-card"><div class="mock-icon">🧩</div><div><b>Полезные инструменты</b><small>Сервисы и инструкции</small></div></div>
+    </div>
+  </div>
+</section>
+<section id="topics">
+  <div class="wrap">
+    <div class="section-head"><div class="kicker">Изучай по шагам</div><h2>Что ты найдёшь на сайте</h2><p>Выбирай направление и начинай с простых задач. Материалы рассчитаны на тех, кто только знакомится с нейросетями.</p></div>
+    <div class="grid">
+      <article class="card"><div class="icon">💬</div><h3>Нейросети для текста</h3><p>Как составлять запросы, писать черновики, планировать и редактировать тексты.</p><span class="tag">Для начинающих</span></article>
+      <article class="card"><div class="icon">🖼️</div><h3>Картинки и дизайн</h3><p>Генерация изображений, идеи для оформления и подготовка визуальных материалов.</p><span class="tag">Творчество</span></article>
+      <article class="card"><div class="icon">💼</div><h3>ИИ для работы</h3><p>Практические сценарии для учёбы, небольших проектов и повседневных задач.</p><span class="tag">Практика</span></article>
+      <article class="card"><div class="icon">📊</div><h3>Сравнение сервисов</h3><p>На что смотреть при выборе инструмента: функции, ограничения, цена и приватность.</p><span class="tag">Обзоры</span></article>
+      <article class="card"><div class="icon">🛠️</div><h3>Автоматизация</h3><p>Как соединять инструменты и сокращать повторяющуюся работу без сложного кода.</p><span class="tag">Экономия времени</span></article>
+      <article class="card"><div class="icon">🚀</div><h3>Идеи для заработка</h3><p>Как превратить полезный навык в услугу или цифровой продукт — без обещаний лёгких денег.</p><span class="tag">Монетизация</span></article>
+    </div>
+  </div>
+</section>
+<section id="guides" style="background:#fff">
+  <div class="wrap">
+    <div class="section-head"><div class="kicker">Первый маршрут</div><h2>С чего начать новичку</h2><p>Это стартовые темы для будущих подробных статей. Открывай их по порядку и пробуй инструменты на собственных задачах.</p></div>
+    <div class="grid">
+      <article class="card article"><span class="number">01 / ОСНОВЫ</span><h3>Что такое нейросеть и как правильно с ней общаться</h3><p>Разберись, что ИИ умеет хорошо, где ошибается и как формулировать понятные запросы.</p><a class="read" href="https://chatgpt.com/" target="_blank" rel="noopener">Попробовать ChatGPT ↗</a></article>
+      <article class="card article"><span class="number">02 / ПРАКТИКА</span><h3>Пять задач, которые можно поручить ИИ уже сегодня</h3><p>Планирование, объяснение сложной темы, черновик письма, идеи и проверка текста.</p><a class="read" href="https://www.microsoft.com/ru-ru/microsoft-copilot" target="_blank" rel="noopener">Посмотреть Copilot ↗</a></article>
+      <article class="card article"><span class="number">03 / БЕЗОПАСНОСТЬ</span><h3>Как пользоваться ИИ и не раскрывать личные данные</h3><p>Не отправляй в открытые сервисы пароли, банковские данные и конфиденциальные документы.</p><a class="read" href="https://www.bsi.bund.de/" target="_blank" rel="noopener">Советы по цифровой безопасности ↗</a></article>
+    </div>
+  </div>
+</section>
+<section id="about">
+  <div class="wrap">
+    <div class="callout">
+      <div><h2>Осваивай ИИ на практике</h2><p>Начни с одной небольшой задачи. Проверяй результат, сравнивай инструменты и сохраняй то, что действительно помогает.</p></div>
+      <a class="btn" href="mailto:hello@example.com?subject=Вопрос%20о%20НейроПомощнике">Связаться с автором</a>
+    </div>
+    <p class="note">Информация на сайте носит ознакомительный характер. Возможности и тарифы сторонних сервисов могут меняться. Упоминание сервиса не означает рекламного партнёрства. Партнёрские ссылки должны быть явно обозначены, если они будут добавлены.</p>
+  </div>
+</section>
+</main>
+<footer><div class="wrap"><div class="foot"><div><strong>✦ НейроПомощник</strong><br>Искусственный интеллект — понятным языком.</div><div>© <span id="year"></span> НейроПомощник</div></div><p class="note">Перед коммерческим запуском добавь реальные контакты, сведения об ответственном лице и необходимые юридические страницы в соответствии с законодательством страны, где ведётся деятельность.</p></div></footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
